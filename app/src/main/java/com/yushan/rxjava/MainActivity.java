@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yushan.rxjava.core.AppAction;
-import com.yushan.rxjava.core.AppActionImpl;
+import com.yushan.rxjava.api.Api;
+import com.yushan.rxjava.api.ApiImpl;
 import com.yushan.rxjava.engine.HttpEngine;
 import com.yushan.rxjava.model.LoginRequest;
 import com.yushan.rxjava.model.LoginResponse;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText etUsername;
     private EditText etPassword;
     private ImageView id_del_password;
-    private AppAction appAction;
+
     private TextView tv_show;
     private Context context;
 
@@ -41,10 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        context = getApplicationContext();
-        //初始化core层
-        appAction = new AppActionImpl(getApplicationContext());
-
 
         initView();
     }
@@ -223,8 +219,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginRequest.setPassword(etPassword.getText().toString().trim());
         loginRequest.setPhonebrand(android.os.Build.BRAND);
         loginRequest.setPhonemodel(android.os.Build.MODEL);
-
-        this.appAction.login(loginRequest, new CallBack<LoginResponse>(getApplicationContext()) {
+        Api mRequest = new ApiImpl();
+        mRequest.login(new CallBack<LoginResponse>(getApplicationContext()) {
             @Override
             public void onCompleted() {
                 ToastUtil.showCenter(context ,"火星一号已经登陆成功");
@@ -251,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e("lixz","onNext");
                 tv_show.setText("" + response);
             }
-        });
+        }, loginRequest);
     }
 
 

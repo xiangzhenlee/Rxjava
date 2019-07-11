@@ -2,11 +2,15 @@ package com.yushan.rxjava.api;
 
 
 import com.yushan.rxjava.UrlContanier;
+import com.yushan.rxjava.model.CheckIsOpenFarmResponse;
 import com.yushan.rxjava.model.LoginResponse;
 import com.yushan.rxjava.model.UserInfoResponse;
 import com.yushan.rxjava.result.HttpResult;
 
+import java.util.Map;
+
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -36,5 +40,11 @@ public interface HttpService {
     @GET(UrlContanier.GetUserInfo)
     Observable<HttpResult<UserInfoResponse>> getUserInfo();
 
-
+    /**
+     * 检测是否打开健康农场
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(UrlContanier.isOpenFarm)
+    Observable<HttpResult<CheckIsOpenFarmResponse>> checkIsOpenFarm(@FieldMap Map<String, Object> request);
 }

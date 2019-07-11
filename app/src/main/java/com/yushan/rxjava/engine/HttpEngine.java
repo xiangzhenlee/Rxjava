@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by yushan on 2016/8/4.
  */
 public class HttpEngine {
-    private static final int DEFAULT_TIMEOUT = 5;
+    private static final int DEFAULT_TIMEOUT = 60;
     private Retrofit retrofit;
     private final String BASE_URL = UrlContanier.mobile_base;
     private HttpService apiService;

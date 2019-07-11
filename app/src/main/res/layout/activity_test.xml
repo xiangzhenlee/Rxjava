@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.yushan.rxjava.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_userid"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:layout_below="@id/tv_userid"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#84bdd9" />
+
+    <TextView
+        android:id="@+id/tv_token"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_token"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_su"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="请求X10"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_hui"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="请求X50"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_btn"
+        android:layout_margin="5dp"
+        android:background="#ffffff" />
+</RelativeLayout>

@@ -3,11 +3,14 @@ package com.yushan.rxjava.api;
 import android.content.Context;
 
 import com.yushan.rxjava.engine.HttpEngine;
+import com.yushan.rxjava.model.CheckIsOpenFarmResponse;
 import com.yushan.rxjava.model.LoginRequest;
 import com.yushan.rxjava.model.LoginResponse;
 import com.yushan.rxjava.model.UserInfoResponse;
 import com.yushan.rxjava.result.HttpResultFunc;
 import com.yushan.rxjava.utils.JsonUtil;
+
+import java.util.Map;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -47,5 +50,13 @@ public class ApiImpl implements Api {
                 .subscribe(subscriber);
     }
 
-
+    @Override
+    public void checkIsOpenFarm(Subscriber<CheckIsOpenFarmResponse> subscriber, Map<String, Object> request) {
+        httpService.checkIsOpenFarm(request)
+                .flatMap(new HttpResultFunc<CheckIsOpenFarmResponse>())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
 }

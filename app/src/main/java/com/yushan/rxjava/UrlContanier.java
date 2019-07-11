@@ -7,11 +7,11 @@ package com.yushan.rxjava;
  */
 public interface UrlContanier {
     /**
-     * 测试环境接口地址
+     * 现网环境接口地址
      */
-    public static final String upload_base = "http://192.168.20.245:80/";
-    public static final String mobile_base = "http://192.168.20.85:8080/";
-    public static final String php_base = "http://192.168.20.244/";
+    public static final String upload_base = "http://sync.wanbu.com.cn/";
+    public static final String mobile_base = "https://mobile.wanbu.com.cn/";
+    public static final String php_base = "https://wap.wanbu.com.cn/";
 
 
     /**
@@ -21,5 +21,11 @@ public interface UrlContanier {
     public static final String GetUserInfo =upload_base + "phoneServer/Login_Reguser_Service/GetUserInfo";
     public static final String GetPedometerInfo = upload_base + "phoneServer/Login_Reguser_Service/GetPedometerInfo";
     public static final String Register =upload_base + "phoneServer/Login_Reguser_Service/Register";
+
+
+    /**
+     * 测试接口
+     */
+    public static final String isOpenFarm = php_base + "NewWanbu/App/Api/index.php/HealthFarm/isOpenFarm";
 
 }
